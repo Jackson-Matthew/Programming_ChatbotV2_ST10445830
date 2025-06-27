@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>ChatBot_V2._0</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CABBY.png" />
+    <None Remove="en-pos-maxent.bin" />
+    <None Remove="en-sent.bin" />
+    <None Remove="en-token.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Knuppe.SharpNL" Version="1.3.0" />
+    <PackageReference Include="OpenNLP" Version="1.0.0" />
+    <PackageReference Include="OpenNLP.NET" Version="1.9.4.1" />
+    <PackageReference Include="SharpEntropy" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CABBY.png" />
+  </ItemGroup>
+
+</Project>

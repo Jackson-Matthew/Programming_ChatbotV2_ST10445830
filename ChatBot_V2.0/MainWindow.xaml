@@ -1,0 +1,30 @@
+﻿<Window x:Class="ChatBot_V2._0.MainWindow"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatBot_V2._0"
+        mc:Ignorable="d"
+        Title="CABBY" Width="800" Height="600">
+
+    <DockPanel>
+        <StackPanel x:Name="MessagePanel">
+            <Viewbox Stretch="Uniform">
+                <Grid Width="800" Height="600">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Source="/CABBY.png"
+                               Stretch="Uniform"
+                               Margin="262,0,262,437" />
+                    <TextBox x:Name="UserInputTextBox" Margin="30,343,127,224" BorderBrush="Black"/>
+                    <Button x:Name="SendButton" Content="Send" Click="SendButton_Click" Margin="678,343,24,224"/>
+                    <TextBox x:Name="ChatDisplayTextBlock" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" FontSize="12" Margin="30,149,39,262"/>
+                    <Button Content="Start Quiz" HorizontalAlignment="Left" Margin="635,95,0,0" VerticalAlignment="Top" Height="29" Width="92" Click="StartQuizButton_Click"/>
+                    <Label Content="Press the Quiz Button to start &#xD;&#xA;the Quiz, or type &quot;start quiz&quot; " HorizontalAlignment="Left" Margin="596,43,0,0" VerticalAlignment="Top" Width="170" Height="52"/>
+                </Grid>
+            </Viewbox>
+        </StackPanel>
+    </DockPanel>
+</Window>
