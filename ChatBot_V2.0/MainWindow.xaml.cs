@@ -44,6 +44,7 @@ public partial class MainWindow : Window
         ChatDisplayTextBlock.ScrollToEnd();
     }
 
+    //the send button for communicating with the chatbot
     private async void SendButton_Click(object sender, RoutedEventArgs e)
     {
         string userInput = UserInputTextBox.Text.Trim();
@@ -78,6 +79,8 @@ public partial class MainWindow : Window
         return sb.ToString();
     }
 
+
+    // Format the quiz question for displaying on the gui
     private string FormatQuizQuestion(QuizQuestions question)
     {
         var lines = new List<string> { question.QuestionText };
@@ -99,6 +102,7 @@ public partial class MainWindow : Window
         return string.Join("\n", lines);
     }
 
+    //the quiz button 
     private async void StartQuizButton_Click(object sender, RoutedEventArgs e)
     {
 

@@ -6,3 +6,19 @@
 [2025-06-27 14:39] Task deleted: "Review account settings"
 [2025-06-27 14:41] Cybersecurity quiz started.
 [2025-06-27 14:43] Quiz completed. Final score: 6/10
+[2025-06-27 16:02] Cybersecurity quiz started.
+[2025-06-27 16:05] Quiz completed. Final score: 8/10
+[2025-06-27 16:06] Task added: "Update password" - Change email password
+[2025-06-27 16:06] Task added: "Review account settings" - Make sure privacy options are up to date. Remind me in 1 minutes with reminder for 2025/06/27 16:07
+[2025-06-27 16:08] Task added: "create password" - make a new password. remind me in 2 hours with reminder for 2025/06/27 18:08
+[2025-06-27 16:08] User viewed all tasks.
+[2025-06-27 16:08] Task marked as completed: "update password"
+[2025-06-27 16:09] Task deleted: "update password"
+[2025-06-27 16:53] Cybersecurity quiz started.
+[2025-06-27 16:55] Quiz completed. Final score: 7/10
+[2025-06-27 16:57] Task added: "create 2fa" - create 2fa for my uni login. remind me in 2 days with reminder for 2025/06/29 16:57
+[2025-06-27 16:58] Task added: "update login page" - change the login page for users
+[2025-06-27 16:58] Task added: "make gui" - implement gui. remind me in 1 minutes with reminder for 2025/06/27 16:59
+[2025-06-27 17:00] User viewed all tasks.
+[2025-06-27 17:00] Task marked as completed: "update login page"
+[2025-06-27 17:01] Task deleted: "update login page"

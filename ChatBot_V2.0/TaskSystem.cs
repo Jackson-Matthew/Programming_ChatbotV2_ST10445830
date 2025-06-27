@@ -6,6 +6,7 @@ public enum TaskStatus
     Completed
 }
 
+//get and set methods for the tasksystem
 public class SecurityTask
 {
     public string? Title { get; set; }
@@ -22,6 +23,8 @@ public class SecurityTask
     }
 }
 
+
+//complete,delete and add task methods that allow for adding, completing, and deleting tasks, as well as viewing all tasks 
 public class TaskSystem
 {
     private List<SecurityTask> tasks = new();
@@ -66,6 +69,9 @@ public class TaskSystem
         task.Reminded = true;
     }
 }
+
+
+//determines the reminder time based on user input, "in 10 minutes" and specific times like "at 3:00 PM"
 
 public static class ReminderParser
 {

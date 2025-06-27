@@ -1,4 +1,6 @@
 ﻿namespace ChatBot_V2._0;
+
+
 class MoodSystem
 {
     public enum Mood { Neutral, Positive, Negative }

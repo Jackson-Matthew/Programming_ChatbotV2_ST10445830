@@ -2,6 +2,10 @@
 using System.Text.Json;
 using static QuizSystem;
 
+/* the Main class that manages the response of the bot, this class references all the other classes of the 
+ * project via their constructors
+*/
+
 namespace ChatBot_V2._0
 {
     class ResponseSystem
@@ -62,6 +66,9 @@ namespace ChatBot_V2._0
             return string.Join("\n", lines);
         }
 
+        /*proccess input defines the main logic of the chatbot, many if else statements control the actions of the bot
+         *bassed on the users input.if certain key words are detected then the bot will respond accordingly based on that input 
+        */
         public string ProcessInput(string input, string userName)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -75,6 +82,7 @@ namespace ChatBot_V2._0
                 MoodSystem.Mood.Negative => "mood_negative",
                 _ => null
             };
+            //displays the log of all activities
 
             if (userInput.Contains("show log"))
             {
@@ -162,6 +170,11 @@ namespace ChatBot_V2._0
                 return $"Quiz started!\n\n{FormatQuestion(question)}";
             }
 
+            /*checks for the conditions of the quiz,when the user intupts an answer to the quiz question
+             * this class will communicate with the QuizSystem class to determine if the answer is correct
+             * Alternatively if the user give an undesired input the Chatbot will reprompt the user for an answer
+            */
+
             if (quiz.quizActive)
             {
                 var current = quiz.GetCurrentQuestion();
@@ -221,6 +234,8 @@ namespace ChatBot_V2._0
                 return moodResponses[new Random().Next(moodResponses.Count)];
             }
 
+            //memory system
+
             if (userInput.Contains("what was i interested in"))
             {
                 string? topic = memory.RecallInterest();
@@ -248,6 +263,8 @@ namespace ChatBot_V2._0
             string? matched = CabbyResponses.Keys
                 .OrderByDescending(k => k.Length)
                 .FirstOrDefault(key => userInput.Contains(key.Replace("_", " ")));
+
+            // if no other response is detected then the chatbot will reply with this
 
             if (matched != null)
             {

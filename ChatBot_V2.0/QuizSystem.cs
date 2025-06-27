@@ -1,6 +1,9 @@
 ﻿using System;
 using static QuizSystem;
 
+/* the quiz contains the actual question, the correct answer of that question and an explanation of the answer as well as the various options a user can select
+ * these are all defined in the QuizQuestions class
+*/
 public class QuizQuestions
 {
     public string? QuestionText { get; set; }
@@ -9,6 +12,8 @@ public class QuizQuestions
     public QuestionType Type { get; set; }
     public string? Explanation { get; set; }
 }
+
+//main quiz classes that control the logic of the quiz,
 public class QuizSystem
 {
     public List<QuizQuestions> questions;
@@ -30,7 +35,7 @@ public class QuizSystem
         questions = LoadQuestions();
 
     }
-
+    // Initializes the quiz, setting the score to 0 and the current question index to 0
     public void BeginQuiz()
     {
         score = 0;
@@ -43,6 +48,9 @@ public class QuizSystem
         return questions[currentQuestionIndex];
     }
 
+    /* Retrieves the current question based on the current question index,if the index is incorrect the correct answer will be displayed
+     * and the score will be incremented if the answer is correct, additionally, an explanation of the answer will be provided
+    */
     public string sendAnswer(int answerIndex)
     {
         var current = GetCurrentQuestion();
@@ -73,6 +81,7 @@ public class QuizSystem
         quizActive = false;
     }
 
+    //all the quiz questions are bellow
     public List<QuizQuestions> LoadQuestions()
     {
         return new List<QuizQuestions>
