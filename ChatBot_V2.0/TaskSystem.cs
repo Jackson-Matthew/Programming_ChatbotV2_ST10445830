@@ -71,40 +71,39 @@ public static class ReminderParser
 {
     public static DateTime? ParseReminder(string input)
     {
-        input = input.ToLower().Trim();
+        input = input.ToLower();
 
-        // Specific date (e.g., "on 2025-07-01")
-        if (Regex.IsMatch(input, @"\bon\s+\d{4}-\d{2}-\d{2}\b"))
+        var inMatch = Regex.Match(input, @"remind me in (\d+)\s*(minutes?|hours?|days?)");
+        if (inMatch.Success)
         {
-            string dateString = Regex.Match(input, @"\d{4}-\d{2}-\d{2}").Value;
-            if (DateTime.TryParseExact(dateString, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+            int amount = int.Parse(inMatch.Groups[1].Value);
+            string unit = inMatch.Groups[2].Value;
+
+            return unit switch
             {
-                return date;
-            }
+                "minute" or "minutes" => DateTime.Now.AddMinutes(amount),
+                "hour" or "hours" => DateTime.Now.AddHours(amount),
+                "day" or "days" => DateTime.Now.AddDays(amount),
+                _ => null
+            };
         }
 
-        // In X days or weeks
-        var match = Regex.Match(input, @"in\s+(\d+)\s+(day|days|week|weeks)");
-        if (match.Success)
+        var atMatch = Regex.Match(input, @"remind me at (\d{1,2}):(\d{2})");
+        if (atMatch.Success)
         {
-            int amount = int.Parse(match.Groups[1].Value);
-            string unit = match.Groups[2].Value;
-
-            return unit.StartsWith("week")
-                ? DateTime.Now.AddDays(amount * 7)
-                : DateTime.Now.AddDays(amount);
+            int hour = int.Parse(atMatch.Groups[1].Value);
+            int minute = int.Parse(atMatch.Groups[2].Value);
+            DateTime now = DateTime.Now;
+            DateTime reminder = new DateTime(now.Year, now.Month, now.Day, hour, minute, 0);
+            if (reminder < now)
+                reminder = reminder.AddDays(1);
+            return reminder;
         }
 
-        // "Tomorrow"
-        if (input.Contains("tomorrow"))
-            return DateTime.Now.AddDays(1);
-
-        // Extend here if you want "next Monday", etc.
-
-        return null; // Unable to parse
+        if (input.Contains("remind me tomorrow"))
+        {
+            return DateTime.Today.AddDays(1).AddHours(9);
+        }
+        return null;
     }
 }
-
-
-
-

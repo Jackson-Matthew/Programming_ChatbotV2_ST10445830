@@ -1,16 +1,6 @@
 ﻿using ChatBot_V2._0;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Threading.Tasks;
-
 using System.IO;
 using static QuizSystem;
 using System.Windows.Threading;
@@ -32,7 +22,8 @@ public partial class MainWindow : Window
             Interval = TimeSpan.FromSeconds(30)
         };
 
-        reminderTimer.Tick += (s, e) => {
+        reminderTimer.Tick += (s, e) =>
+        {
             foreach (var task in responseSystem.taskSystem.GetDueTasks())
             {
                 ChatDisplayTextBlock.Text += $"\nCABBY: ⏰ Reminder! {task.Description} (scheduled for {task.ReminderTime:t})\n";
@@ -110,7 +101,7 @@ public partial class MainWindow : Window
 
     private async void StartQuizButton_Click(object sender, RoutedEventArgs e)
     {
-        
+
         responseSystem.quiz.BeginQuiz();
         var firstQuestion = responseSystem.quiz.GetCurrentQuestion();
 

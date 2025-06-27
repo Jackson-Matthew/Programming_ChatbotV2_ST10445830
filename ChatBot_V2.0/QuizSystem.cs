@@ -1,7 +1,6 @@
 ﻿using System;
 using static QuizSystem;
 
-
 public class QuizQuestions
 {
     public string? QuestionText { get; set; }
@@ -10,8 +9,6 @@ public class QuizQuestions
     public QuestionType Type { get; set; }
     public string? Explanation { get; set; }
 }
-
-
 public class QuizSystem
 {
     public List<QuizQuestions> questions;
@@ -61,11 +58,9 @@ public class QuizSystem
             response = $"❌ Incorrect! The correct answer was: {current?.Options?[current.CorrectIndex]}";
         }
 
-        // Append explanation either way
         response += $"\n💡 {current?.Explanation}";
         return response;
     }
-
 
     public bool NextQuestion()
     {
@@ -99,7 +94,7 @@ public class QuizSystem
              Type = QuestionType.MultipleChoice,
              Explanation = "Fake emails often aim to steal your credentials. Always report them as phishing."
             },
-            
+
             new QuizQuestions // 3 TF
             {
              QuestionText = "(True/False) Using the same password for multiple accounts is safe as long as it's a strong password.",
